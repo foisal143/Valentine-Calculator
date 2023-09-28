@@ -12,8 +12,13 @@
 <body class="bg-primary">
   <section>
     <div class=" container text-white p-5 ">
-      <h1 class="text-center mb-5">My Velentine Budget</h1>
-
+      <!-- <h1 class="text-center mb-5">My Velentine Budget</h1> -->
+      <div class="w-50 mx-auto mb-2">
+        <label class="fs-2 fw-bold my-2" for="">My Budget:</label>
+        <input type="number" name="" id="budget" class="form-control w-50 d-inline"
+          placeholder="Please Enter your budget">
+        <p class="fs-2 fw-bold">My Budget: $<span id="myBudget"></span></p>
+      </div>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card pt-4 h-100">
@@ -70,6 +75,8 @@
         <p id="dis-rs" class=" text-danger"></p>
         <button id="disBtn" class="btn btn-primary ">Apply Now</button>
         <p class="fs-2 fw-bold">All Cost: $<span id="totalCost">00</span></p>
+        <button class="btn btn-primary" id="by-all">By All</button>
+        <p class="text-success fs-3" id="byAllProduct"></p>
       </div>
 
     </div>

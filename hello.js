@@ -44,6 +44,7 @@ document.getElementById('kitBtn').addEventListener('click', () => {
     alert('bukuchuda quantity ki kokhono 0 er kom hoi');
     return;
   }
+
   const kitTotal = kitPrice * kitQun;
   const chocolatePrice = innerTexts('chTot');
   const totalChocolate = kitTotal + chocolatePrice;
@@ -66,6 +67,7 @@ document.getElementById('roseBtn').addEventListener('click', () => {
     alert('bukuchuda quantity ki kokhono 0 er kom hoi');
     return;
   }
+
   const roseTotal = rosePrice * roseQun;
   const roseTotalPrice = innerTexts('rsTot');
   const totalRose = roseTotal + roseTotalPrice;
@@ -86,6 +88,7 @@ document.getElementById('diaryBtn').addEventListener('click', () => {
     alert('bukuchuda quantity ki kokhono 0 er kom hoi');
     return;
   }
+
   const diaryTotal = diaryPrice * diaryQun;
   const diaryTotalPrice = innerTexts('drTot');
   const totalDiary = diaryTotal + diaryTotalPrice;
@@ -106,4 +109,39 @@ document.getElementById('disBtn').addEventListener('click', () => {
   } else {
     getElement('dis-rs', 'Please input a valid copun');
   }
+});
+
+// budget and total er comparision
+document.getElementById('by-all').addEventListener('click', () => {
+  if (
+    innerTexts('myBudget') < innerTexts('total') ||
+    innerTexts('myBudget') < 100 ||
+    innerTexts('myBudget') < 0 ||
+    isNaN(innerTexts('myBudget'))
+  ) {
+    alert('Tumer kase eto taka nai tumi aro taka niye aso');
+    return;
+  } else {
+    if (inputText('discount') === 101) {
+      const afbg = innerTexts('myBudget') - innerTexts('totalCost');
+      getElement('myBudget', afbg);
+      const yourBalance = `
+      Your request approved successfuly
+      Your Current Balance: ${innerTexts('myBudget')}
+      `;
+      getElement('byAllProduct', yourBalance);
+    } else {
+      const afbg = innerTexts('myBudget') - innerTexts('total');
+      getElement('myBudget', afbg);
+      const yourBalance = `
+      Your request approved successfuly
+      Your Current Balance: ${innerTexts('myBudget')}
+      `;
+      getElement('byAllProduct', yourBalance);
+    }
+  }
+});
+
+document.getElementById('budget').addEventListener('keyup', e => {
+  getElement('myBudget', e.target.value);
 });
